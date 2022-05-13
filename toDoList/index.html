@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="nome"></h1>
+    <input id="text" type="text" oninput="atualizar(this)">
+    
+
+    <script>
+
+        onload =  function() {
+            let nome = localStorage.getItem("nome");
+            let h1 = document.getElementById("nome");
+            h1.innerHTML = nome
+        }
+        
+        function atualizar(input) {
+           let inputValue = input.value;
+           console.log(inputValue)
+
+           let h1 = document.getElementById("nome");
+           h1.innerHTML = inputValue;
+
+           localStorage.setItem("nome", inputValue)
+        }
+    </script>
+</body>
+</html>
