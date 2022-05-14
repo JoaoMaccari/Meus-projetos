@@ -30,68 +30,77 @@
     <div class="main-container">
         <!--criar um input que recebe os dados
         criar um btn que envia dos dados para a memoria  -->
+
+        
         <input id="input" type="text" placeholder="Insira a tarefa" autofocus> <button onclick="salvaItem()">add</button>  <button onclick="mostraLista()">Ver lista</button> <button onclick="apagaItem()">clear</button> 
-    
+         
         <div id="to-do-board" class="todo_item">
+            <ul id="lista">
+                
+            </ul>
             
         </div>
+
     </div>
     
 
 
     <script>
-        
 
-        function salvaItem() {
             let arr = [];
-            //jogo o input na variavel
-            let novoItem = document.getElementById("input").value
-
+            
             //se não tiver nada salvo então salve em um novo arrey
             if (localStorage.getItem("lista_itens") == null) {
                 localStorage.setItem("lista_itens", "[]");
                                         //um colchete entre "" antes da minha key, é como se eu mandasse um arrey p dentro dela
             }
 
-           //crio uma variavel que recebe o conteudo que foi setado na condição, que no caso é minha key como o arrey
-           
+        function salvaItem() {
+            //função que vai apenas salvar o elemento no localstorage
+            //jogo o input na variavel
+            let novoItem = document.getElementById("input").value
+              
+             //crio uma variavel que recebe o conteudo que foi setado na condição, que no caso é minha key como o arrey
             arr = JSON.parse(localStorage.getItem("lista_itens"));
        
             //agora minha variavel é  como se fosse um arrey, uso o push para pegar os novos inputs
             arr.push(novoItem);
+
+            novoItem.value = " "
             
 
             // salvo o arr no local storagem com o item que foi jogado para dentro
             localStorage.setItem("lista_itens", JSON.stringify(arr));
-            
-             //resgato o elemento pai
-           
-           //crio um 
+            console.log(arr)
 
-            //testo se meu get não está nulo, caso não esteja trago meu localstorage para uma variavel
-            if (localStorage.getItem("lista_itens") != null) {
-
-                let lista = document.getElementById("to-do-board")
-                const item = document.createElement("label");
-                lista.appendChild(item);
-
-                item.innerHTML = `
-                   
-                
-                `
-            
-            }  
-
-
-            
-            
         }
 
         function mostraLista() {
-           
-            //MOSTRAR NA TELLA OS ITENS
-        }
+        
+             
+            //testo se meu get não está nulo, caso não esteja trago meu localstorage para uma variavel
+            if (localStorage.getItem("lista_itens") != null) {
+                let teste = [];
+                
+                arr = JSON.parse(localStorage.getItem("lista_itens"));
+                
 
+                let lista = document.getElementById("lista");
+
+                lista.innerHTML = ""
+
+                for (i in arr) {
+                    //const itemList = document.createElement("li");
+                    //lista.appendChild(itemList);
+                    lista.innerHTML +=` <li><input type="checkbox"> ${arr[i]} </li>
+                    `
+                  
+                }
+                
+                apagaItem()
+            }    
+           
+        }
 
         function apagaItem() {
             localStorage.removeItem("lista_itens")
