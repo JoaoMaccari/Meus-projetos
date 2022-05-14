@@ -1,33 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .main-container{
+            border: 1px solid magenta;
+            width: 50vw;
+            height: 50vh;
+        }
+
+        .to-do-board{
+            border: 1px solid magenta;
+            width: 50%;
+        }
+    </style>
 </head>
+
 <body>
-    <h1 id="nome"></h1>
-    <input id="text" type="text" oninput="atualizar(this)">
+    
+    
+    <div class="main-container">
+        <!--criar um input que recebe os dados
+        criar um btn que envia dos dados para a memoria  -->
+        <input id="input" type="text"> <button onclick="salvaItem()">add</button>  <button onclick="mostraLista()">Ver lista</button> <button onclick="apagaItem()">clear</button> 
+    
+        <div id="to-do-board">
+            
+        </div>
+    </div>
     
 
+
     <script>
-
-        onload =  function() {
-            let nome = localStorage.getItem("nome");
-            let h1 = document.getElementById("nome");
-            h1.innerHTML = nome
-        }
         
-        function atualizar(input) {
-           let inputValue = input.value;
-           console.log(inputValue)
 
-           let h1 = document.getElementById("nome");
-           h1.innerHTML = inputValue;
+        function salvaItem() {
+            //jogo o input na variavel
+            let novoItem = document.getElementById("input").value
 
-           localStorage.setItem("nome", inputValue)
+            //se não tiver nada salvo então salve em um novo arrey
+            if (localStorage.getItem("lista_itens") == null) {
+                localStorage.setItem("lista_itens", "[]");
+                                        //um colchete entre "" antes da minha key, é como se eu mandasse um arrey p dentro dela
+            }
+
+            //pega o item antigo e coloca no novo item
+            //var velhoItem recebe a key com o arrey
+            var velhoItem = JSON.parse(localStorage.getItem("lista_itens"));
+            console.log(velhoItem)
+            //agora q a var velho item é como se fosse um arrey, uso o push para pegar os novos inputs
+            velhoItem.push(novoItem);
+            
+
+            // //salva o velho e novo item no localstorage
+            localStorage.setItem("lista_itens", JSON.stringify(velhoItem));
+            
+            
+            
+            
         }
+
+        function mostraLista() {
+           
+            //testo se meu get não está nulo, caso não esteja trago meu localstorage para uma variavel
+            if (localStorage.getItem("lista_itens") != null) {
+                var velhoItem = JSON.parse(localStorage.getItem("lista_itens"));
+                console.log(velhoItem)
+            }  
+            //MOSTRAR NA TELLA OS ITENS
+        }
+
+
+        function apagaItem() {
+            localStorage.removeItem("lista_itens")
+        }
+
+    
+           
+            
+
+      
+
     </script>
 </body>
+
 </html>
