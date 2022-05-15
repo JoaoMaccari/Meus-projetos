@@ -32,7 +32,8 @@
         criar um btn que envia dos dados para a memoria  -->
 
         
-        <input id="input" type="text" placeholder="Insira a tarefa" autofocus> <button onclick="salvaItem()">add</button>  <button onclick="mostraLista()">Ver lista</button> <button onclick="apagaItem()">clear</button> 
+        <input id="input" type="text" placeholder="Insira a tarefa" autofocus> <button onclick="salvaItem()">add</button>  <button onclick="mostraLista()">Ver lista</button> 
+        <!-- <button onclick="apagaItem()">clear</button>  -->
          
         <div id="to-do-board" class="todo_item">
             <ul id="lista">
@@ -71,7 +72,7 @@
 
             // salvo o arr no local storagem com o item que foi jogado para dentro
             localStorage.setItem("lista_itens", JSON.stringify(arr));
-            console.log(arr)
+            
 
         }
 
@@ -80,30 +81,34 @@
              
             //testo se meu get não está nulo, caso não esteja trago meu localstorage para uma variavel
             if (localStorage.getItem("lista_itens") != null) {
-                let teste = [];
-                
+                let arr = [];
                 arr = JSON.parse(localStorage.getItem("lista_itens"));
-                
 
+                let pos = 0
                 let lista = document.getElementById("lista");
-
                 lista.innerHTML = ""
-
-                for (i in arr) {
-                    //const itemList = document.createElement("li");
-                    //lista.appendChild(itemList);
-                    lista.innerHTML +=` <li><input type="checkbox"> ${arr[i]} </li>
-                    `
-                  
-                }
                 
-                apagaItem()
+                for (i in arr) {
+
+                    // const btn = document.createElement("button");
+
+                    // lista.appendChild(btn)
+
+                    lista.innerHTML +=` <li><input type="checkbox"> ${arr[i]} </li> <button onclick="apagaItem(this)">apagar</button>
+                    `
+                    // pos é a posição do meu i(contador)
+                    pos.innerHTML = ""
+                    pos = i
+                    // btn.setAttribute("onclick", `apagaItem(${pos})`)
+                    // console.log(pos)
+                }
+               
             }    
            
         }
 
-        function apagaItem() {
-            localStorage.removeItem("lista_itens")
+        function apagaItem(e) {
+           arr.splice(this, 1)
         }
 
     
