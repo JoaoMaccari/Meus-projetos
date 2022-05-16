@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stillo.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="main-container">
+        <!--criar um input que recebe os dados
+        criar um btn que envia dos dados para a memoria  -->
+
+
+        <input id="input" class="new-task-input" type="text" placeholder="Insira a tarefa" autofocus> <button
+            onclick="salvaItem()">adicionar</button> <button onclick="mostraLista()">Ver lista</button>
+        <!-- <button onclick="apagaItem()">clear</button>  -->
+
+        <div id="to-do-board" class="todo_item">
+            <ul id="lista">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+<script src="./js/script.js"></script>    
+</body>
+
+</html>

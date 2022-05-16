@@ -1,0 +1,26 @@
+body {
+    background-color: grey;
+}
+
+.main-container {
+    border: 1px solid magenta;
+    width: 50vw;
+    height: 50vh;
+}
+
+.to-do-board {
+    border: 1px solid magenta;
+    width: 50%;
+}
+
+.done {
+    background-color: green;
+}
+
+.delete {
+    display: none;
+}
+
+.li-dinamico{
+    display: none;
+}
