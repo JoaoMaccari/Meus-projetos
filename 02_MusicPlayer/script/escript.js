@@ -1,3 +1,5 @@
+console.log(this)
+
 let curr_track = document.getElementById("audio");
 let track = Number(0) 
 

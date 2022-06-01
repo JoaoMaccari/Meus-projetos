@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>titulo</h1>
+
+
+    <p id="p">teste</p>
+
+  <input type="text" id="texto">
+
+   
+
+    <script>
+    document.getElementsByTagName("h1")[0].addEventListener("click", function(){
+        
+        this.style.color = "red"
+        console.log(this);
+     })
+
+     let p = document.getElementById("p")
+     p.addEventListener("click", function(e) {
+      console.log(e.target)
+      e.target.style.textTransform = "upperCase"
+       
+     })
+     document.getElementById("texto").addEventListener("input", function(e){
+         let input = e.target.value
+         console.log(input);
+     })
+    </script>
+</body>
+</html>
