@@ -21,13 +21,41 @@ let lista_imagens = [
 
     {
         url: "url('/02_MusicPlayer/img/gits-3.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-4.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-5.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-6.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-7.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-8.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-9.jpg')"
+    },
+
+    {
+        url: "url('/02_MusicPlayer/img/gits-10.jpg')"
     }
 ]
 
     let randon_image = Math.floor(Math.random() * lista_imagens.length  );
     document.body.style.backgroundImage = lista_imagens[randon_image].url
 
-    console.log(lista_imagens[randon_image]);
+    
 }
 
 

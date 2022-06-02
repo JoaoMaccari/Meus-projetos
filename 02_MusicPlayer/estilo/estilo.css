@@ -12,7 +12,6 @@ body{
     position: relative;
     width: 100vw;
     height: 100vh;
-    border: 1px solid magenta; /*temp*/
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,22 +19,21 @@ body{
 .card{
     position: absolute;
     width: 40%;
-    height: 50%;
-    border: 1px salmon solid;
+    height: 35%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgb(212, 212, 247, 0.5);
+    border-radius: 15px;
 }
 
 .display{
     position: absolute;
     height: 50%;
     width: 90%;
-    border: 1px solid black;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: aliceblue;
 }
 
 .controle{
@@ -45,9 +43,9 @@ body{
     top: 60%;
     left: 5%;
     height: 100px;
-    border: 1px rgb(223, 22, 0) solid;
     text-align: center;
-    background-color: aliceblue;
+    background: linear-gradient(to bottom, #d4d4f7 15%, #fcba12 100%);
+    border-radius: 15px;
     
 }
 
@@ -69,4 +67,28 @@ body{
     position: absolute;
     left: 80%;
     top: 25%;
+}
+
+#future_player{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+     
+}
+
+.display{
+    background: linear-gradient(to bottom, #d4d4f7 15%, #fcba12 100%); ;
+    border-radius: 15px;
+}
+
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    padding: 20px;
 }
